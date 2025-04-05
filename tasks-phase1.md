@@ -22,16 +22,32 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     2. Create PR from this branch to **YOUR** master and merge it to make new release.
 
-    ***place the screenshot from GA after succesfull application of release***
+    ![release.png](doc/figures/release.png)
 
 
 6. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
 
-    ***describe one selected module and put the output of terraform graph for this module here***
+    Graf modułu:
+    ![img.png](modules/composer/graph.png)
+
+    Opis:
+    Moduł Composer odpowiada za automatyczne utworzenie środowiska Cloud Composer 2 (czyli zarządzanego Airflowa) w Google Cloud Platform. W ramach działania tworzy dedykowane konto serwisowe, przypisuje mu niezbędne role IAM (w tym composer.worker, dataproc.editor i serviceAccountUser) oraz aktywuje wymagane API. Dodatkowo tworzy podsieć w ramach wskazanej sieci VPC, którą następnie przekazuje do modułu Composer jako środowisko sieciowe. Środowisko jest konfigurowane z parametrami dotyczącymi zasobów (CPU, RAM, storage) dla schedulera, webserwera i workerów.
+
 
 7. Reach YARN UI
 
    ***place the command you used for setting up the tunnel, the port and the screenshot of YARN UI here***
+
+    Aby dostać się do konsoli YARN użyliśmy komendy:
+    ``` bash
+    gcloud compute ssh tbd-cluster-m \
+    --project=tbd-2025l-9921 \
+    --zone=europe-west1-d \
+    -- -L 8088:localhost:8088
+    ```
+    A następnie w przeglądarce weszliśmy na adres : ```http://localhost:8088```
+
+    ![hadoop.png](doc/figures/hadoop_yarn_ui.png)
 
 8. Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
