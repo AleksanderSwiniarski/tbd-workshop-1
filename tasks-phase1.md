@@ -114,7 +114,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
     uris = ['gs://tbd-2025l-9921-data/sample.orc']
     );
     ```
-    ![out2.png](doc/figures/external_table_view.png)
+    ![out2.png](doc/figures/external_table_output.png)
     ![out3.png](doc/figures/external_table_view.png)
 
     ***why does ORC not require a table schema?***
